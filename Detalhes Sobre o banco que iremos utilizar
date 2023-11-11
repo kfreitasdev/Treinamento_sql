@@ -1,0 +1,35 @@
+Detalhes Sobre o banco que iremos utilizar 
+ 
+Banco de dados sobre aluguel de DVD's para demonstrar os recursos do PostgreSQL. 
+
+ 
+
+Existem 15 tabelas no banco de dados de aluguel de DVD: 
+
+actor – armazena dados dos atores, incluindo nome e sobrenome. 
+
+film – armazena dados do filme, como título, ano de lançamento, duração, classificação, etc. 
+
+film_actor – armazena as relações entre filmes e atores. 
+
+category – armazena dados de categorias de filmes. 
+
+film_category- armazena as relações entre filmes e categorias. 
+
+Store – contém os dados da loja, incluindo equipe do gerente e endereço. 
+
+inventory – armazena dados de inventário. 
+
+rental – armazena dados de aluguel. 
+
+payment – armazena os pagamentos do cliente. 
+
+staff – armazena dados da equipe. 
+
+customer – armazena dados do cliente. 
+
+address – armazena dados de endereço de funcionários e clientes 
+
+city – armazena nomes de cidades. 
+
+country – armazena nomes de países. 
