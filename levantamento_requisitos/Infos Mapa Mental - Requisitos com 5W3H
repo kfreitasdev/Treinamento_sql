@@ -1,0 +1,47 @@
+Link para acesso ao Mapa Mental 
+https://www.mermaidchart.com/app/projects/719d2b5e-703a-4a4e-b53d-02120948f9e8/diagrams/be170e0e-d719-46b2-87c5-cb2d318225b8/version/v0.1/edit
+Prompt para criação do Mapa - Observar as Identações
+mindmap
+    root((1 - Qual assunto será analisado?))
+        Resposta:
+            Locação
+        2- O que foi alugado?
+            Resposta: Filmes
+            Existe alguma Hierarquia, como vocês analisam?
+                Resposta: Sim, Os filmes possuem as categorias, classificações, Idioma
+            O que você quer analisar?
+                Resposta: Nome dos Filmes, quais são as categorias que possuem mais locação, Duração dos filmes, ano de Lançamento, Idioma
+        3- Quando o aluguel aconteceu?
+                Resposta: O filme foi alugado no sábado 10/11/2023 
+                    Existe alguma Hierarquia, como vocês analisam?
+                        Sim, temos várias análises temporais.
+                            O que você quer Analisar?
+                                Resposta: Quero visões mensais, também por dia e dia da semana para entender como as locações ocorrem.
+        4- Onde o Aluguel Ocorreu?
+            Resposta: O aluguel ocorreu em nossas locadoras.
+                O que você quer analisar?
+                    Resposta: Queremos avaliar a performance de nossas locadoras, ver por gerente de loja e qual cidade país estão acontecendo.
+        5- Quem fez a Locação?
+            Resposta: A locação foi feita pelo João na Loja 1 que é gerenciada pelo Mike
+             O que você quer analisar?
+                Resposta: Eu quero saber quais pessoas mais realizam locações e qual loja e qual gerente tem melhor performance.
+        6 - Como foi que a Locação aconteceu?
+                    Resposta: A locação foi feita com pagamento em dinheiro.
+                        Existe alguma hierarquia, como vocês analisam?
+                            Temos pagamentos em dinheiro, cartão de crédito.
+                        O que você quer analisar?
+                            Resposta: Quero avaliar minha receita com locações, comparar sua evolução em comparação com outros períodos.
+        7- Por que a locação aconteceu?
+            Resposta: A locação ocorreu devido a promoções realizadas pelas lojas.
+                Existe alguma hierarquia, como vocês analisam?
+                 Reposta: Estamos sempre buscando realizar promoções visando aumentar o numero de locações.
+                    O que você quer analisar?
+                        Resposta: Gostaria de saber a performance das nossas campanhas.
+        8- Com que frequência ocorrem as Locações?
+            Resposta: Temos locações diariamente, porém o volume mais concentrado nos finais de semana.
+                Existe alguma hierarquia, como vocês analisam?
+                    Resposta: Acompanhamos o volume de locações e devoluções.
+                        O que você quer analisar?
+                            Quero quantas locações e devoluções ocorrem por dia, identificar clientes que levam mais filmes por locação.
+        9- Quais as métricas serão monitoradas?
+            Resposta: Quero acompanhar a quantidade de locações, valor total de locação e o valor de pagamentos.
