@@ -1,0 +1,27 @@
+Link para acesso ao Mapa Mental sobre os Conceitos de SQL
+https://www.mermaidchart.com/app/projects/719d2b5e-703a-4a4e-b53d-02120948f9e8/diagrams/f0d9592e-20b4-4898-a510-ad28c71a12b5/version/v0.1/edit
+Prompt para criação do Mapa - Observar a Identação
+mindmap
+    root((Conceitos SQL))
+        DQL - Data Query Language
+            Linguagem de Consulta de Dados
+                Select
+        DML - Data Manipulation Language
+                    Linguagem de Manipulação de Dados
+                        Insert
+                        Delete
+                        Update
+        DDL - Data Definition Language
+            Linguagem de Definição de Dados
+                Create
+                Alter
+                Droop
+        DCL - Data Control Language
+            Linguagem de Controle de Dados
+                Grant
+                Revoke
+        DTL - Data Transaction Language
+            Linguagem de Transação de Dados
+                Begin
+                Commit
+                RollBack   
