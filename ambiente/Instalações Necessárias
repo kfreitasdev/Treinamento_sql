@@ -1,0 +1,29 @@
+Documento de Instalação para o Curso
+Este documento contém links e instruções para baixar e instalar os softwares necessários para o nosso curso.
+
+1. Docker Hub
+Descrição: Docker Hub é um serviço de registro de contêineres que permite encontrar e compartilhar imagens de contêiner com sua equipe.
+
+Link para Acesso e Download:
+
+Acesse Docker Hub https://hub.docker.com/
+2. DBeaver
+Descrição: DBeaver é um gerenciador de banco de dados universal gratuito que oferece suporte a uma grande variedade de bancos de dados.
+
+Link para Download: 
+
+Baixe o DBeaver em Link de Download do DBeaver https://dbeaver.io/download/
+3. Docker Desktop
+Descrição: Docker Desktop é uma aplicação que simplifica o processo de gerenciamento de ambientes Docker em sistemas operacionais como Windows e MacOS.
+
+Link para Download:
+
+Baixe o Docker Desktop em Link de Download do Docker Desktop https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
+4. Power Architect
+Descrição: Power Architect é uma ferramenta de modelagem de dados que ajuda a criar modelos de dados de alta qualidade de forma eficiente.
+
+Link para Download:
+
+Baixe o Power Architect em Link de Download do Power Architect https://bestofbi.com/architect-download/
+Instruções Adicionais
+Siga as instruções de instalação em cada link para garantir uma configuração correta dos softwares. Em caso de dúvidas ou problemas durante a instalação, entre em contato com o suporte técnico do curso.
