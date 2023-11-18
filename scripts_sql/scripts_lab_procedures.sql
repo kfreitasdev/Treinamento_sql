@@ -9,7 +9,7 @@ BEGIN
    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'staging') 
    LOOP
       -- Executa o comando TRUNCATE na tabela atual usando execução dinâmica de SQL
-      EXECUTE 'TRUNCATE TABLE ' || quote_ident(r.tablename) || ' CASCADE;';
+      EXECUTE 'TRUNCATE TABLE staging.' || quote_ident(r.tablename);
    -- Finaliza o loop FOR
    END LOOP;
 END;
@@ -24,7 +24,7 @@ BEGIN
     FOR tabela IN (SELECT table_name FROM information_schema.tables WHERE table_schema = 'staging') 
     LOOP
         -- Use o comando INSERT INTO ... SELECT para copiar os dados da tabela de origem para a tabela de Staging
-        EXECUTE 'INSERT INTO staging.' || tabela.table_name || ' SELECT * FROM oltp.' || tabela.table_name;
+        EXECUTE 'INSERT INTO staging.' || tabela.table_name || ' SELECT * FROM public.' || tabela.table_name;
     END LOOP;
 END;
 $$
@@ -37,7 +37,7 @@ DECLARE
 -- Inicia o bloco de código principal
 BEGIN 
    -- Inicia um loop FOR que itera sobre os resultados da consulta
-   FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'dw') 
+   FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'dw' AND tablename NOT IN ('dim_tempo')) 
    LOOP
       -- Executa o comando TRUNCATE na tabela atual usando execução dinâmica de SQL
       EXECUTE 'TRUNCATE TABLE dw.' || quote_ident(r.tablename) || ' CASCADE;';
