@@ -194,9 +194,35 @@ CREATE TABLE payment (
     payment_date timestamp with time zone NOT NULL
 ) PARTITION BY RANGE(payment_date);
 
-/*CREATE TABLE payment_p2017_01 PARTITION OF payment
--- Inicia a definição de uma nova tabela.
-    FOR VALUES FROM ('2017-01-01 00:00:00+3:00') TO ('2017-02-01 00:00:00+3:00');*/
+CREATE TABLE payment_p2017_01 PARTITION OF payment
+    FOR VALUES FROM ('2017-01-01 00:00:00+3:00') TO ('2017-02-01 00:00:00+3:00');
+   
+ALTER TABLE payment_p2017_01 OWNER TO postgres;
+
+CREATE TABLE payment_p2017_02 PARTITION OF payment
+    FOR VALUES FROM ('2017-02-01 00:00:00+3:00') TO ('2017-03-01 00:00:00+3:00');
+
+ALTER TABLE payment_p2017_02 OWNER TO postgres;
+
+CREATE TABLE payment_p2017_03 PARTITION OF payment
+    FOR VALUES FROM ('2017-03-01 00:00:00+3:00') TO ('2017-04-01 00:00:00+3:00');
+
+ALTER TABLE payment_p2017_03 OWNER TO postgres;
+
+CREATE TABLE payment_p2017_04 PARTITION OF payment
+    FOR VALUES FROM ('2017-04-01 00:00:00+3:00') TO ('2017-05-01 00:00:00+3:00');
+
+ALTER TABLE payment_p2017_04 OWNER TO postgres;
+
+CREATE TABLE payment_p2017_05 PARTITION OF payment
+    FOR VALUES FROM ('2017-05-01 00:00:00+3:00') TO ('2017-06-01 00:00:00+3:00');
+
+ALTER TABLE payment_p2017_05 OWNER TO postgres;
+
+CREATE TABLE payment_p2017_06 PARTITION OF payment
+    FOR VALUES FROM ('2017-06-01 00:00:00+3:00') TO ('2017-07-01 00:00:00+3:00');
+
+ALTER TABLE payment_p2017_06 OWNER TO postgres;
 
 CREATE SEQUENCE rental_rental_id_seq
 -- Cria uma nova SEQUENCE para gerar valores numéricos exclusivos.
@@ -307,6 +333,30 @@ CREATE INDEX idx_fk_country_id ON city USING btree (country_id);
 
 CREATE INDEX idx_fk_customer_id ON payment USING btree (customer_id);
 
+CREATE INDEX idx_fk_payment_p2017_01_customer_id ON payment_p2017_01 USING btree (customer_id);
+
+CREATE INDEX idx_fk_payment_p2017_01_staff_id ON payment_p2017_01 USING btree (staff_id);
+
+CREATE INDEX idx_fk_payment_p2017_02_customer_id ON payment_p2017_02 USING btree (customer_id);
+
+CREATE INDEX idx_fk_payment_p2017_02_staff_id ON payment_p2017_02 USING btree (staff_id);
+
+CREATE INDEX idx_fk_payment_p2017_03_customer_id ON payment_p2017_03 USING btree (customer_id);
+
+CREATE INDEX idx_fk_payment_p2017_03_staff_id ON payment_p2017_03 USING btree (staff_id);
+
+CREATE INDEX idx_fk_payment_p2017_04_customer_id ON payment_p2017_04 USING btree (customer_id);
+
+CREATE INDEX idx_fk_payment_p2017_04_staff_id ON payment_p2017_04 USING btree (staff_id);
+
+CREATE INDEX idx_fk_payment_p2017_05_customer_id ON payment_p2017_05 USING btree (customer_id);
+
+CREATE INDEX idx_fk_payment_p2017_05_staff_id ON payment_p2017_05 USING btree (staff_id);
+
+CREATE INDEX idx_fk_payment_p2017_06_customer_id ON payment_p2017_06 USING btree (customer_id);
+
+CREATE INDEX idx_fk_payment_p2017_06_staff_id ON payment_p2017_06 USING btree (staff_id);
+
 CREATE INDEX idx_fk_film_id ON film_actor USING btree (film_id);
 
 CREATE INDEX idx_fk_inventory_id ON rental USING btree (inventory_id);
@@ -383,7 +433,32 @@ ALTER TABLE ONLY staff
 ALTER TABLE ONLY store
     ADD CONSTRAINT store_address_id_fkey FOREIGN KEY (address_id) REFERENCES address(address_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 
-/*ALTER TABLE payment_p2017_01
+ALTER TABLE payment_p2017_01
     ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
     ADD FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
-    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);*/
+    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);
+   
+    ALTER TABLE payment_p2017_02
+    ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+    ADD FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
+    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);
+
+ALTER TABLE payment_p2017_03
+    ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+    ADD FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
+    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);
+
+ALTER TABLE payment_p2017_04
+    ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+    ADD FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
+    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);
+
+ALTER TABLE payment_p2017_05
+    ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+    ADD FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
+    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);
+
+ALTER TABLE payment_p2017_06
+    ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id),
+    ADD FOREIGN KEY(staff_id) REFERENCES staff(staff_id),
+    ADD FOREIGN KEY(rental_id) REFERENCES rental(rental_id);
