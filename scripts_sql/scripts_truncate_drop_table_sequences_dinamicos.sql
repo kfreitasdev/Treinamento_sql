@@ -10,7 +10,7 @@ BEGIN
    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') 
    LOOP
       -- Executa o comando TRUNCATE na tabela atual usando execução dinâmica de SQL
-      EXECUTE 'TRUNCATE TABLE ' || quote_ident(r.tablename) || ' CASCADE;';
+      EXECUTE 'TRUNCATE TABLE public.' || quote_ident(r.tablename) || ' CASCADE;';
    -- Finaliza o loop FOR
    END LOOP;
 -- Finaliza o bloco de código principal
@@ -38,7 +38,7 @@ FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public'):
 LOOP:
 
 --Inicia o corpo do loop.
-EXECUTE 'TRUNCATE TABLE ' || quote_ident(r.tablename) || ' CASCADE;':
+EXECUTE 'TRUNCATE TABLE public.' || quote_ident(r.tablename) || ' CASCADE;':
 
 --Usa o comando EXECUTE para executar dinamicamente o comando TRUNCATE na tabela atual. A função quote_ident é usada para escapar corretamente o nome da tabela, e CASCADE é usado para truncar também todas as tabelas referenciadas.
 END LOOP;:
@@ -55,15 +55,15 @@ DECLARE
    r RECORD;
 BEGIN 
    -- Dropar tabelas
-   FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'oltp') 
+   FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'staging') 
    LOOP
-      EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE;';
+      EXECUTE 'DROP TABLE IF EXISTS staging.' || quote_ident(r.tablename) || ' CASCADE;';
    END LOOP;
    
    -- Dropar sequences
-   FOR r IN (SELECT sequence_name FROM information_schema.sequences WHERE sequence_schema = 'oltp') 
+   FOR r IN (SELECT sequence_name FROM information_schema.sequences WHERE sequence_schema = 'staging') 
    LOOP
-      EXECUTE 'DROP SEQUENCE IF EXISTS ' || quote_ident(r.sequence_name) || ';';
+      EXECUTE 'DROP SEQUENCE IF EXISTS staging.' || quote_ident(r.sequence_name) || ';';
    END LOOP;
 END $$;
 
