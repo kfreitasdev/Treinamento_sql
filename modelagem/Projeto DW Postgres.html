@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<style>
+      .table {
+        background-color:#F5F5FF;
+        border-left:4px solid gray;
+        border-bottom:4px solid gray;
+        border-top:4px solid gray;
+        border-right:4px solid gray;
+        margin-bottom:3em;
+        margin-left:2em;
+        margin-right:2em;
+        padding:1em;
+      }
+      .tableNameHeading h1 {
+          display: inline;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-size:125%;
+        font-weight:bold;
+      }
+        
+      .tableNameHeading h2 {
+        display: inline;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-size:115%;
+        font-weight:normal;
+      }
+      
+      .tableComment { 
+        background-color:#e4efff; margin-bottom:20px;
+      }
+      
+      .tableDefinition { 
+        padding:2px;
+        border-collapse:collapse;
+        margin-top:1em;
+      }
+
+      .tdTableDefinition {
+        padding-right:10px;
+        vertical-align:top;
+        border-top:1px solid #C0C0C0;
+      }
+
+      .tdLogicalColName {
+        width:20em;
+      }
+      
+      .tdPhysicalColName {
+        width:20em;
+      }
+      
+      .tdDataType {
+        width:10em;
+      }
+
+      .tdPkFlag {
+        width:4em;
+      }
+
+      .tdNullFlag {
+        width:9em;
+      }
+
+      .tdTableHeading {
+        padding:2px;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-weight: bold;
+        vertical-align:top;
+        border-bottom: 1px solid #C0C0C0;
+        background-color: rgb(240,240,240);
+      }
+      
+      .subTitle {
+        font-family: Segoe UI, Arial, sans-serif;
+        font-weight: bold;
+      }
+
+      .references {
+      }
+      .comment {
+        color:#666666;
+        margin-left:3em;
+        padding:0.25em;
+      }
+    </style>
+<title>Projeto DW Curso SQL</title>
+</head>
+<body>
+<center>
+<h2>Projeto DW Curso SQL</h2>
+</center>
+<h3>List of tables</h3>
+<ul>
+<li>
+<a href="#Dimens%C3%A3o Ator">Dimens&atilde;o Ator</a>
+</li>
+<li>
+<a href="#Dimens%C3%A3o Cliente">Dimens&atilde;o Cliente</a>
+</li>
+<li>
+<a href="#Dimens%C3%A3o Filme">Dimens&atilde;o Filme</a>
+</li>
+<li>
+<a href="#Dimens%C3%A3o Loja">Dimens&atilde;o Loja</a>
+</li>
+<li>
+<a href="#Fato Alguel de Filmes">Fato Alguel de Filmes</a>
+</li>
+</ul>
+<div class="tableNameHeading">
+<h1>Dimens&atilde;o Ator<a name="Dimens%C3%A3o Ator"></a>
+</h1>
+<h2>
+      (Physical Name: dim_ator)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">surrogate_key_ator (PK)</td><td class="tdTableDefinition">sk_ator</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave incremental para controle da dimens&atilde;o</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Natural Key do Ator</td><td class="tdTableDefinition">nk_ator</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Codigo do Ator</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Nome do Ator</td><td class="tdTableDefinition">nm_ator</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo referencia o nome do Ator</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Data Carga</td><td class="tdTableDefinition">dt_carga</td><td class="tdTableDefinition">DATE</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Registra a data em que a dimens&atilde;o foi carregada no processo de ETL</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#Fato Alguel de Filmes">Fato Alguel de Filmes</a> referencing (surrogate_key_ator)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>Dimens&atilde;o Cliente<a name="Dimens%C3%A3o Cliente"></a>
+</h1>
+<h2>
+      (Physical Name: dim_cliente)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Surrogate Key Cliente (PK)</td><td class="tdTableDefinition">sk_cliente</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave de controle para a dimens&atilde;o cliente</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Natural Key Cliente</td><td class="tdTableDefinition">nk_cliente</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Codigo do Cliente</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Nome do Cliente</td><td class="tdTableDefinition">nm_cliente</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo que referencia o nome do cliente.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Endere&ccedil;o do Cliente</td><td class="tdTableDefinition">dsc_endereco</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo que registra o endere&ccedil;o do cliente</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Cidade do Cliente</td><td class="tdTableDefinition">nm_cidade</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo que identifica a cidade do cliente</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Pa&iacute;s</td><td class="tdTableDefinition">nm_pais</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Referencia o pa&iacute;s do cliente</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Data da Carga</td><td class="tdTableDefinition">dt_carga</td><td class="tdTableDefinition">DATE</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo que registra da data de carga da dimens&atilde;o no processo de ETL</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#Fato Alguel de Filmes">Fato Alguel de Filmes</a> referencing (Surrogate Key Cliente)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>Dimens&atilde;o Filme<a name="Dimens%C3%A3o Filme"></a>
+</h1>
+<h2>
+      (Physical Name: dim_filme)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Surrogate Key do Filme (PK)</td><td class="tdTableDefinition">sk_filme</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave de controle da dimens&atilde;o filme.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Natural do Key do Filme</td><td class="tdTableDefinition">nk_filme</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Codigo do Filme</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Titulo do Filme</td><td class="tdTableDefinition">dsc_titulo_filme</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o titulo do filme</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Ano de lan&ccedil;amento do Filme</td><td class="tdTableDefinition">ano_lancamento</td><td class="tdTableDefinition">VARCHAR(20)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o ano de lan&ccedil;amento do Filme</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Dura&ccedil;&atilde;o do Filme</td><td class="tdTableDefinition">num_duracao_filme</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o tempo de dura&ccedil;&atilde;o do filme.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Classifica&ccedil;&atilde;o do Filme</td><td class="tdTableDefinition">dsc_classificacao_filme</td><td class="tdTableDefinition">VARCHAR(20)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve a classifica&ccedil;&atilde;o do Filme</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Idioma do Filme</td><td class="tdTableDefinition">dsc_idioma</td><td class="tdTableDefinition">VARCHAR(100)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o idioma do filme</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Categoria do Filme</td><td class="tdTableDefinition">dsc_categoria_filme</td><td class="tdTableDefinition">VARCHAR(20)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve a categoria do filme</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Data da Carga</td><td class="tdTableDefinition">dt_carga</td><td class="tdTableDefinition">DATE</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Registra a data de carga da dimens&atilde;o conforme processo de ETL</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#Fato Alguel de Filmes">Fato Alguel de Filmes</a> referencing (Surrogate Key do Filme)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>Dimens&atilde;o Loja<a name="Dimens%C3%A3o Loja"></a>
+</h1>
+<h2>
+      (Physical Name: dim_loja)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Surrogate Key da Loja (PK)</td><td class="tdTableDefinition">sk_loja</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave de controle da dimens&atilde;o Loja</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Natural Key da Loja</td><td class="tdTableDefinition">nk_loja</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Codigo da Loja</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Endere&ccedil;o da Loja</td><td class="tdTableDefinition">dsc_endereco_loja</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o endere&ccedil;o da Loja</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Nome da Cidade</td><td class="tdTableDefinition">nm_cidade_loja</td><td class="tdTableDefinition">VARCHAR(255)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Cidade onde esta localizada a Loja.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Pa&iacute;s da Loja</td><td class="tdTableDefinition">nm_pais</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o Pa&iacute;s onde esta localizada a Loja</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Gerente da Loja</td><td class="tdTableDefinition">nm_gerente</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Descreve o nome do gerente da loja</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Data da Carga</td><td class="tdTableDefinition">dt_carga</td><td class="tdTableDefinition">DATE</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Registra a data de carga da dimens&atilde;o conforme processo de ETL</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#Fato Alguel de Filmes">Fato Alguel de Filmes</a> referencing (Surrogate Key da Loja)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>Fato Alguel de Filmes<a name="Fato Alguel de Filmes"></a>
+</h1>
+<h2>
+      (Physical Name: ft_aluguel_filmes)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Data Loca&ccedil;&atilde;o</td><td class="tdTableDefinition">dt_locacao</td><td class="tdTableDefinition">DATE</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo que se refere a data da loca&ccedil;&atilde;o do filme. <br>Tabela de origem - Rental - Campo rental_date</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Data da Devolu&ccedil;&atilde;o</td><td class="tdTableDefinition">dt_devolucao</td><td class="tdTableDefinition">DATE</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Campo que referencia a a data de devolu&ccedil;&atilde;o do filme.<br>Tabela Rental<br>Campo: return_date</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Surrogate Key Cliente
+                &nbsp;(<a href="#Dimens%C3%A3o Cliente">FK</a>)
+              </td><td class="tdTableDefinition">sk_cliente</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave de controle para a dimens&atilde;o cliente</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Surrogate Key da Loja
+                &nbsp;(<a href="#Dimens%C3%A3o Loja">FK</a>)
+              </td><td class="tdTableDefinition">sk_loja</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave de controle da dimens&atilde;o Loja</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Surrogate Key do Filme
+                &nbsp;(<a href="#Dimens%C3%A3o Filme">FK</a>)
+              </td><td class="tdTableDefinition">sk_filme</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave de controle da dimens&atilde;o filme.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">surrogate_key_ator
+                &nbsp;(<a href="#Dimens%C3%A3o Ator">FK</a>)
+              </td><td class="tdTableDefinition">sk_ator</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Chave incremental para controle da dimens&atilde;o</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Status das Devolu&ccedil;&otilde;es</td><td class="tdTableDefinition">dsc_status_devolucao</td><td class="tdTableDefinition">VARCHAR(50)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Coluna criada para medir o status das devolu&ccedil;&otilde;es de filmes</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Quantidade de Dias em Loca&ccedil;&atilde;o</td><td class="tdTableDefinition">qtd_dias_locacao</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">M&eacute;trica que calcula a quantidade de dias de loca&ccedil;&atilde;o.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Quantidade de Loca&ccedil;&otilde;es</td><td class="tdTableDefinition">qtd_locacoes</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">M&eacute;trica que realiza a soma de loca&ccedil;&otilde;es na tabela rental.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">Valor total dos Alugu&eacute;is</td><td class="tdTableDefinition">vlr_total_locacoes</td><td class="tdTableDefinition">NUMERIC(23,2)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">M&eacute;trica: Soma do Valor de loca&ccedil;&otilde;es na tabela rental.</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#Dimens%C3%A3o Ator">Dimens&atilde;o Ator</a> through (surrogate_key_ator)</li>
+<li>
+<a href="#Dimens%C3%A3o Cliente">Dimens&atilde;o Cliente</a> through (Surrogate Key Cliente)</li>
+<li>
+<a href="#Dimens%C3%A3o Loja">Dimens&atilde;o Loja</a> through (Surrogate Key da Loja)</li>
+<li>
+<a href="#Dimens%C3%A3o Filme">Dimens&atilde;o Filme</a> through (Surrogate Key do Filme)</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
