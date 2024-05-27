@@ -4,9 +4,9 @@ DO $$
 -- Declaração de variáveis que serão usadas dentro do bloco.
 DECLARE 
     -- Definindo a data inicial do intervalo que queremos popular na dimensão de tempo.
-    data_atual DATE := '2020-01-01';
+    data_atual DATE := '2005-01-01';
     -- Definindo a data final do intervalo.
-    data_final DATE := '2020-03-31';
+    data_final DATE := '2017-12-31';
 
 -- Início do bloco de comandos.
 BEGIN
